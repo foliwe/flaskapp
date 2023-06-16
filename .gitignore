@@ -1,0 +1,29 @@
+# Ignore Python virtual environment files
+venv/
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+
+.venv
+# Ignore log files
+*.log
+
+# Ignore database files
+*.db
+
+# Ignore environment-specific files
+.env
+
+# Ignore generated files
+__pycache__/
+
+# Ignore sensitive or private information (such as passwords)
+secrets.ini
+
+# Ignore any other files or directories specific to your app
+
+.venv

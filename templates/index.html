@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IT Academy Enrollment Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="form-container">
+    <h2 class="text-center">IT Academy Enrollment Form</h2>
+    <form action="/" method="POST">
+      <div class="form-group">
+        <label for="full_name">Full Name:</label>
+        <input type="text" class="form-control" id="full_name" name="full_name" required>
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+      </div>
+
+        <div class="form-group">
+          <label>Sex:</label><br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" id="male" value="Male" required>
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" id="female" value="Female" required>
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label for="date_of_stated">Date of Start:</label>
+        <input type="date" class="form-control" id="date_of_stated" name="date_of_stated" required>
+      </div>
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <input type="text" class="form-control" id="country" name="country" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="contact_number">Contact Number:</label>
+        <input type="text" class="form-control" id="contact_number" name="contact_number" required>
+      </div>
+      <div class="form-group">
+        <label for="it_knowledge">IT Knowledge:</label><br>
+        <input type="radio" id="beginner" name="it_knowledge" value="beginner" required>
+        <label for="beginner">Beginner</label><br>
+        <input type="radio" id="basic" name="it_knowledge" value="basic" required>
+        <label for="basic">Basic</label><br>
+        <input type="radio" id="intermediate" name="it_knowledge" value="intermediate" required>
+        <label for="intermediate">Intermediate</label><br>
+        <input type="radio" id="advanced" name="it_knowledge" value="advanced" required>
+        <label for="advanced">Advanced</label>
+      </div>
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" id="comment" name="comment" rows="4"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
