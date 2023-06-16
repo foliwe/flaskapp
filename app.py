@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-import mysql.connector
-import uuid
+import mysql.connector, uuid
+import pycountry
 
 app = Flask(__name__)
 
@@ -47,6 +47,7 @@ conn.close()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    countries = [country.name for country in pycountry.countries]
     if request.method == 'POST':
         # Get form data
         full_name = request.form['full_name']
@@ -77,7 +78,7 @@ def index():
         # Redirect to thank you page
         return redirect(url_for('thank_you', name=full_name))
 
-    return render_template('index.html')
+    return render_template('index.html', countries=countries)
 
 @app.route('/thank-you/<name>')
 def thank_you(name):

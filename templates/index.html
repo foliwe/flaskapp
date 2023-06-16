@@ -36,8 +36,12 @@
         <input type="date" class="form-control" id="date_of_stated" name="date_of_stated" required>
       </div>
       <div class="form-group">
-        <label for="country">Country:</label>
-        <input type="text" class="form-control" id="country" name="country" required>
+        <label for="country">Country</label>
+        <select class="form-control" id="country" name="country">
+            {% for country in countries %}
+            <option value="{{ country }}">{{ country }}</option>
+            {% endfor %}
+        </select>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
