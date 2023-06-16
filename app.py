@@ -5,12 +5,14 @@ import pycountry
 app = Flask(__name__)
 
 # MySQL Connection Configuration
+# MySQL Connection Configuration
 mysql_config = {
     'user': 'root',
     'password': 'Foli1882',
-    'host': 'localhost',
+    'host': 'flaskapp-db',  # Use the Docker Compose service name here
     'database': 'flaskapp'
 }
+
 
 # Connect to MySQL
 conn = mysql.connector.connect(**mysql_config)
