@@ -1,28 +1,51 @@
-version: "3.9"
+# version: '3'
+# services:
+#   flaskapp:
+#     image: flaskapp:latest
+#     ports:
+#       - 5000:5000
+#     depends_on:
+#       - db
+#     environment:
+#       - FLASK_APP=app.py
+#       - MYSQL_HOST=db
+#     networks:
+#       - mynetwork
+
+#   db:
+#     image: mysql:8.0
+#     command: --default-authentication-plugin=mysql_native_password
+#     restart: always
+#     environment:
+#       MYSQL_ROOT_PASSWORD: Foli1882
+#       MYSQL_DATABASE: flaskapp
+#     volumes:
+#       - db_data:/var/lib/mysql
+#     networks:
+#       - mynetwork
+
+# volumes:
+#   db_data:
+
+# networks:
+#   mynetwork:
+
+version: "3"
 services:
-  flaskapp:
-    image: flaskapp:latest
+  app:
+    build: .
+    links:
+      - db
+    restart: on-failure:3
     ports:
       - "5000:5000"
-    depends_on:
-      - db
-    environment:
-      - DB_HOST=flaskapp-db
-      - DB_PORT=3306
-      - DB_NAME=flaskappdb
-      - DB_USER=flaskappuser
-      - DB_PASSWORD=flaskapppassword
   db:
     image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: Foli1882
-      MYSQL_DATABASE: flaskappdb
-      MYSQL_PASSWORD: flaskapppassword
-    volumes:
-      - db_data:/var/lib/mysql
-      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
-    command: --init-file /docker-entrypoint-initdb.d/init.sql
     ports:
-      - "3306:3306"
-volumes:
-  db_data:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
+
