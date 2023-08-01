@@ -8,8 +8,8 @@ app = Flask(__name__)
 # MySQL Connection Configuration
 config = {
     'user': 'root',
-    'password': 'root',
-    'host': 'db',
+    'password': 'Foli1882',
+    'host': 'localhost',
     'port': '3306',
     'database': 'flaskapp'
 }
