@@ -7,11 +7,10 @@ app = Flask(__name__)
 
 # MySQL Connection Configuration
 config = {
-    'user': 'root',
-    'password': 'Foli1882',
-    'host': 'localhost',
+    'user': 'utaka',
+    'host': 'utaka.mysql.pythonanywhere-services.com',
     'port': '3306',
-    'database': 'flaskapp'
+    'database': 'utaka$flaskapp'
 }
 
 
@@ -41,9 +40,9 @@ def index():
         connection = mysql.connector.connect(**config)
         cursor = connection.cursor()
 
-
         query = "INSERT INTO student (full_name, date_of_birth, email, sex, date_of_stated, country, contact_number, it_knowledge, comment) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
-        values = (full_name, date_of_birth, email, sex, date_of_stated, country, contact_number, it_knowledge, comment)
+        values = (full_name, date_of_birth, email, sex, date_of_stated,
+                  country, contact_number, it_knowledge, comment)
         cursor.execute(query, values)
 
         # Commit changes and close connection
@@ -63,4 +62,4 @@ def thank_you(name):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
